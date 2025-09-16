@@ -823,6 +823,12 @@
 /processorParam:Quality=Best
 /build:Grubs/Sound Effects/Alert/grub_alert_3.wav
 
+#begin Grubs/Sound Effects/Burrow/grub_burrow.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Grubs/Sound Effects/Burrow/grub_burrow.wav;Grubs/Sound Effects/Burrow/grub_burrow
+
 #begin Grubs/Sound Effects/Freed/grub_free_1.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -834,6 +840,12 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Grubs/Sound Effects/Freed/grub_free_2.wav;Grubs/Sound Effects/Freed/grub_free_2
+
+#begin Grubs/Sound Effects/Jar Break/jar_break.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Grubs/Sound Effects/Jar Break/jar_break.wav
 
 #begin Grubs/Sound Effects/Sad/grub_sad_1.wav
 /importer:WavImporter

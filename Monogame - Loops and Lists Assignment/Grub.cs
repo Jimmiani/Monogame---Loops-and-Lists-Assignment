@@ -28,6 +28,8 @@ namespace Monogame___Loops_and_Lists_Assignment
         private List<SoundEffect> _alertEffect;
         private List<SoundEffect> _freedEffect;
         private List<SoundEffect> _idleEffect;
+        private SoundEffect _breakEffect;
+        private SoundEffect _burrowEffect;
 
         private List<Texture2D> _idleAnim;
         private List<Texture2D> _freedAnim;
@@ -40,12 +42,16 @@ namespace Monogame___Loops_and_Lists_Assignment
 
         private int _currentFrame;
         private float _animTimer;
+        private float _breakTimer;
+        private bool _isBroken;
 
-        public Grub(List<Texture2D> idleAnim, List<SoundEffect> idleEffect, List<Texture2D> alertAnim, List<SoundEffect> alertEffect, List<Texture2D> freedAnim, List<SoundEffect> freedEffect, Texture2D jarTexture)
+        public Grub(List<Texture2D> idleAnim, List<SoundEffect> idleEffect, List<Texture2D> alertAnim, List<SoundEffect> alertEffect, List<Texture2D> freedAnim, List<SoundEffect> freedEffect, Texture2D jarTexture, SoundEffect breakEffect, SoundEffect burrowEffect)
         {
             _idleEffect = idleEffect;
             _alertEffect = alertEffect;
             _freedEffect = freedEffect;
+            _breakEffect = breakEffect;
+            _burrowEffect = burrowEffect;
 
             _idleAnim = idleAnim;
             _alertAnim = alertAnim;
@@ -57,7 +63,9 @@ namespace Monogame___Loops_and_Lists_Assignment
             _currentAnim = _idleAnim;
             _currentFrame = 0;
             _animTimer = 0;
-            _grubRect = new Rectangle(_generator.Next(10, 700), _generator.Next(10, 400), 150, 177);
+            _breakTimer = 0;
+            _isBroken = false;
+            _grubRect = new Rectangle(_generator.Next(10, 1000), _generator.Next(10, 480), 150, 177);
             _jarRect = new Rectangle(_grubRect.X - 25, _grubRect.Y - 49, 208, 227);
         }
 
@@ -90,7 +98,8 @@ namespace Monogame___Loops_and_Lists_Assignment
             }
             else if (grubState == GrubState.Alert)
             {
-                if (!_jarRect.Contains(mouseState.Position))
+
+                if (!_jarRect.Contains(mouseState.Position) && !_isBroken)
                 {
                     _animTimer = 0;
                     _currentFrame = 0;
@@ -112,10 +121,21 @@ namespace Monogame___Loops_and_Lists_Assignment
 
                 if (mouseState.LeftButton == ButtonState.Pressed && prevMouseState.LeftButton == ButtonState.Released)
                 {
-                    _animTimer = 0;
-                    _currentFrame = 0;
-                    _freedEffect[_generator.Next(0, _freedEffect.Count)].Play();
-                    grubState = GrubState.Freed;
+                    if (!_isBroken)
+                        _breakEffect.Play();
+                    _isBroken = true;
+                }
+
+                if (_isBroken)
+                {
+                    _breakTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    if (_breakTimer >= 0.5)
+                    {
+                        _animTimer = 0;
+                        _currentFrame = 0;
+                        _freedEffect[_generator.Next(0, _freedEffect.Count)].Play();
+                        grubState = GrubState.Freed;
+                    }
                 }
             }
             else if (grubState == GrubState.Freed)
@@ -125,6 +145,10 @@ namespace Monogame___Loops_and_Lists_Assignment
                 {
                     _currentFrame++;
                     _animTimer = 0;
+                    if (_currentFrame == 15)
+                    {
+                        _burrowEffect.Play();
+                    }
                     if (_currentFrame >= _freedAnim.Count)
                     {
                         grubState = GrubState.Gone;
@@ -140,7 +164,7 @@ namespace Monogame___Loops_and_Lists_Assignment
                 spriteBatch.Draw(_currentAnim[_currentFrame], _grubRect, Color.White);
             }
             
-            if (grubState != GrubState.Freed && grubState != GrubState.Gone)
+            if (!_isBroken)
             {
                 spriteBatch.Draw(_jarTexture, _jarRect, Color.White);
             }

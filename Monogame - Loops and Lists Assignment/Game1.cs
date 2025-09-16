@@ -22,6 +22,8 @@ namespace Monogame___Loops_and_Lists_Assignment
         List<SoundEffect> idleEffect;
         List<SoundEffect> alertEffect;
         List<SoundEffect> freedEffect;
+        SoundEffect burrowEffect;
+        SoundEffect breakEffect;
 
         Texture2D grubJarTexture;
 
@@ -52,9 +54,9 @@ namespace Monogame___Loops_and_Lists_Assignment
             base.Initialize();
 
             grubs = new List<Grub>();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 3; i++)
             {
-                grubs.Add(new Grub(grubIdle, idleEffect, grubAlert, alertEffect, grubFreed, freedEffect, grubJarTexture));
+                grubs.Add(new Grub(grubIdle, idleEffect, grubAlert, alertEffect, grubFreed, freedEffect, grubJarTexture, breakEffect, burrowEffect));
             }
         }
 
@@ -80,6 +82,8 @@ namespace Monogame___Loops_and_Lists_Assignment
                 freedEffect.Add(Content.Load<SoundEffect>("Grubs/Sound Effects/Freed/grub_free_" + i));
             for (int i = 1; i <= 3; i++)
                 idleEffect.Add(Content.Load<SoundEffect>("Grubs/Sound Effects/Sad/grub_sad_" + i));
+            burrowEffect = Content.Load<SoundEffect>("Grubs/Sound Effects/Burrow/grub_burrow");
+            breakEffect = Content.Load<SoundEffect>("Grubs/Sound Effects/Jar Break/jar_break");
         }
 
         protected override void Update(GameTime gameTime)
