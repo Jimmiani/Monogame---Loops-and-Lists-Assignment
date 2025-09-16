@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -17,6 +18,10 @@ namespace Monogame___Loops_and_Lists_Assignment
         List<Texture2D> grubIdle;
         List<Texture2D> grubAlert;
         List<Texture2D> grubFreed;
+
+        List<SoundEffect> idleEffect;
+        List<SoundEffect> alertEffect;
+        List<SoundEffect> freedEffect;
 
         Texture2D grubJarTexture;
 
@@ -40,18 +45,24 @@ namespace Monogame___Loops_and_Lists_Assignment
             grubAlert = new List<Texture2D>();
             grubFreed = new List<Texture2D>();
 
+            idleEffect = new List<SoundEffect>();
+            alertEffect = new List<SoundEffect>();
+            freedEffect = new List<SoundEffect>();
+
             base.Initialize();
 
             grubs = new List<Grub>();
             for (int i = 0; i < 10; i++)
             {
-                grubs.Add(new Grub(grubIdle, grubAlert, grubFreed, grubJarTexture));
+                grubs.Add(new Grub(grubIdle, idleEffect, grubAlert, alertEffect, grubFreed, freedEffect, grubJarTexture));
             }
         }
 
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            // Images
 
             for (int i = 0; i <= 6; i++)
                 grubAlert.Add(Content.Load<Texture2D>("Grubs/Images/Alert 12/Cry_00" + i));
@@ -60,6 +71,15 @@ namespace Monogame___Loops_and_Lists_Assignment
             for (int i = 0; i <= 37; i++)
                 grubIdle.Add(Content.Load<Texture2D>("Grubs/Images/Idle 12/Idle_" + i.ToString("D3")));
             grubJarTexture = Content.Load<Texture2D>("Grubs/Images/grub_jar");
+
+            // Sound Effects
+
+            for (int i = 1; i <= 3; i++)
+                alertEffect.Add(Content.Load<SoundEffect>("Grubs/Sound Effects/Alert/grub_alert_" + i));
+            for (int i = 1; i <= 2; i++)
+                freedEffect.Add(Content.Load<SoundEffect>("Grubs/Sound Effects/Freed/grub_free_" + i));
+            for (int i = 1; i <= 3; i++)
+                idleEffect.Add(Content.Load<SoundEffect>("Grubs/Sound Effects/Sad/grub_sad_" + i));
         }
 
         protected override void Update(GameTime gameTime)

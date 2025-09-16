@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -23,18 +24,29 @@ namespace Monogame___Loops_and_Lists_Assignment
     {
         private GrubState grubState;
         private Random _generator;
+
+        private List<SoundEffect> _alertEffect;
+        private List<SoundEffect> _freedEffect;
+        private List<SoundEffect> _idleEffect;
+
         private List<Texture2D> _idleAnim;
         private List<Texture2D> _freedAnim;
         private List<Texture2D> _alertAnim;
         private List<Texture2D> _currentAnim;
+
         private Rectangle _grubRect;
         private Rectangle _jarRect;
         private Texture2D _jarTexture;
+
         private int _currentFrame;
         private float _animTimer;
 
-        public Grub(List<Texture2D> idleAnim, List<Texture2D> alertAnim, List<Texture2D> freedAnim, Texture2D jarTexture)
+        public Grub(List<Texture2D> idleAnim, List<SoundEffect> idleEffect, List<Texture2D> alertAnim, List<SoundEffect> alertEffect, List<Texture2D> freedAnim, List<SoundEffect> freedEffect, Texture2D jarTexture)
         {
+            _idleEffect = idleEffect;
+            _alertEffect = alertEffect;
+            _freedEffect = freedEffect;
+
             _idleAnim = idleAnim;
             _alertAnim = alertAnim;
             _freedAnim = freedAnim;
@@ -71,6 +83,7 @@ namespace Monogame___Loops_and_Lists_Assignment
                 {
                     _animTimer = 0;
                     _currentFrame = 0;
+                    _alertEffect[_generator.Next(0, _alertEffect.Count)].Play();
                     grubState = GrubState.Alert;
                 }
 
@@ -81,6 +94,7 @@ namespace Monogame___Loops_and_Lists_Assignment
                 {
                     _animTimer = 0;
                     _currentFrame = 0;
+                    _idleEffect[_generator.Next(0, _idleEffect.Count)].Play();
                     grubState = GrubState.Idle;
                     return;
                 }
@@ -100,6 +114,7 @@ namespace Monogame___Loops_and_Lists_Assignment
                 {
                     _animTimer = 0;
                     _currentFrame = 0;
+                    _freedEffect[_generator.Next(0, _freedEffect.Count)].Play();
                     grubState = GrubState.Freed;
                 }
             }

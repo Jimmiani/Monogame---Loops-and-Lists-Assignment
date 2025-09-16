@@ -805,11 +805,23 @@
 /processorParam:TextureFormat=Color
 /build:Grubs/Images/Idle 12/Idle_037.png;Grubs/Images/Idle 12/Idle_037
 
-#begin Grubs/Sound Effects/Alert/grub_alert.wav
+#begin Grubs/Sound Effects/Alert/grub_alert_1.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Grubs/Sound Effects/Alert/grub_alert.wav;Grubs/Sound Effects/Alert/grub_alert
+/build:Grubs/Sound Effects/Alert/grub_alert_1.wav
+
+#begin Grubs/Sound Effects/Alert/grub_alert_2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Grubs/Sound Effects/Alert/grub_alert_2.wav
+
+#begin Grubs/Sound Effects/Alert/grub_alert_3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Grubs/Sound Effects/Alert/grub_alert_3.wav
 
 #begin Grubs/Sound Effects/Freed/grub_free_1.wav
 /importer:WavImporter
