@@ -337,6 +337,18 @@
 /processorParam:TextureFormat=Color
 /build:Grubs/Images/Freed 10/Freed_019.png;Grubs/Images/Freed 10/Freed_019
 
+#begin Grubs/Images/grass_background.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/grass_background.png
+
 #begin Grubs/Images/grub_jar.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -846,6 +858,12 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Grubs/Sound Effects/Jar Break/jar_break.wav
+
+#begin Grubs/Sound Effects/Music/Greenpath.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Grubs/Sound Effects/Music/Greenpath.wav
 
 #begin Grubs/Sound Effects/Sad/grub_sad_1.wav
 /importer:WavImporter

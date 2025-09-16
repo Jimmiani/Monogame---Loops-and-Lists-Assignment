@@ -65,8 +65,8 @@ namespace Monogame___Loops_and_Lists_Assignment
             _animTimer = 0;
             _breakTimer = 0;
             _isBroken = false;
-            _grubRect = new Rectangle(_generator.Next(10, 1000), _generator.Next(10, 480), 150, 177);
-            _jarRect = new Rectangle(_grubRect.X - 25, _grubRect.Y - 49, 208, 227);
+            _jarRect = new Rectangle(_generator.Next(10, 1150), _generator.Next(10, 580), 119, 130);
+            _grubRect = new Rectangle(_jarRect.X + 18, _jarRect.Y + 27, 86, 102);
         }
 
         public void Update(MouseState mouseState, MouseState prevMouseState, GameTime gameTime)
@@ -129,7 +129,7 @@ namespace Monogame___Loops_and_Lists_Assignment
                 if (_isBroken)
                 {
                     _breakTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    if (_breakTimer >= 0.5)
+                    if (_breakTimer >= 0.3)
                     {
                         _animTimer = 0;
                         _currentFrame = 0;
@@ -169,6 +169,22 @@ namespace Monogame___Loops_and_Lists_Assignment
                 spriteBatch.Draw(_jarTexture, _jarRect, Color.White);
             }
             
+        }
+
+        public GrubState CurrentState
+        {
+            get { return grubState; }
+        }
+
+        public Rectangle Hitbox
+        {
+            get { return _jarRect; }
+        }
+
+        public void MoveHitbox()
+        {
+            _jarRect = new Rectangle(_generator.Next(10, 1150), _generator.Next(10, 580), 119, 130);
+            _grubRect = new Rectangle(_jarRect.X + 18, _jarRect.Y + 27, 86, 102);
         }
     }
 }

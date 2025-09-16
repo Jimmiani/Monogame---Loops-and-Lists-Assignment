@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
 
@@ -14,6 +15,8 @@ namespace Monogame___Loops_and_Lists_Assignment
 
         MouseState mouseState, prevMouseState;
         List<Grub> grubs;
+        SoundEffectInstance musicInstance;
+        SoundEffect greenpathMusic;
 
         List<Texture2D> grubIdle;
         List<Texture2D> grubAlert;
@@ -26,6 +29,10 @@ namespace Monogame___Loops_and_Lists_Assignment
         SoundEffect breakEffect;
 
         Texture2D grubJarTexture;
+        Texture2D background;
+        Rectangle window;
+        float grubTimer;
+        int prevWheelValue;
 
 
 
@@ -42,6 +49,9 @@ namespace Monogame___Loops_and_Lists_Assignment
             _graphics.PreferredBackBufferWidth = 1280;
             _graphics.ApplyChanges();
 
+            window = new Rectangle(0, 0, _graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
+            grubTimer = 0;
+            prevWheelValue = mouseState.ScrollWheelValue;
 
             grubIdle = new List<Texture2D>();
             grubAlert = new List<Texture2D>();
@@ -53,10 +63,22 @@ namespace Monogame___Loops_and_Lists_Assignment
 
             base.Initialize();
 
+            musicInstance.IsLooped = true;
+            musicInstance.Play();
+
             grubs = new List<Grub>();
             for (int i = 0; i < 3; i++)
             {
                 grubs.Add(new Grub(grubIdle, idleEffect, grubAlert, alertEffect, grubFreed, freedEffect, grubJarTexture, breakEffect, burrowEffect));
+                for (int j = 0; j < grubs.Count - 1; j++)
+                {
+
+                    if (grubs[i].Hitbox.Intersects(grubs[j].Hitbox))
+                    {
+                        grubs[i].MoveHitbox();
+                        j = -1;
+                    }
+                }
             }
         }
 
@@ -73,8 +95,12 @@ namespace Monogame___Loops_and_Lists_Assignment
             for (int i = 0; i <= 37; i++)
                 grubIdle.Add(Content.Load<Texture2D>("Grubs/Images/Idle 12/Idle_" + i.ToString("D3")));
             grubJarTexture = Content.Load<Texture2D>("Grubs/Images/grub_jar");
+            background = Content.Load<Texture2D>("Grubs/Images/grass_background");
 
             // Sound Effects
+
+            greenpathMusic = Content.Load<SoundEffect>("Grubs/Sound Effects/Music/Greenpath");
+            musicInstance = greenpathMusic.CreateInstance();
 
             for (int i = 1; i <= 3; i++)
                 alertEffect.Add(Content.Load<SoundEffect>("Grubs/Sound Effects/Alert/grub_alert_" + i));
@@ -92,11 +118,36 @@ namespace Monogame___Loops_and_Lists_Assignment
                 Exit();
 
             prevMouseState = mouseState;
+            prevWheelValue = mouseState.ScrollWheelValue;
             mouseState = Mouse.GetState();
+            grubTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            
+
+            if (grubTimer >= 3 || prevWheelValue > mouseState.ScrollWheelValue)
+            {
+                grubTimer = 0;
+                if (grubs.Count <= 25)
+                {
+                    grubs.Add(new Grub(grubIdle, idleEffect, grubAlert, alertEffect, grubFreed, freedEffect, grubJarTexture, breakEffect, burrowEffect));
+                    for (int j = 0; j < grubs.Count - 1; j++)
+                    {
+                        if (grubs[grubs.Count - 1].Hitbox.Intersects(grubs[j].Hitbox))
+                        {
+                            grubs[grubs.Count - 1].MoveHitbox();
+                            j = -1;
+                        }
+                    }
+                }
+            }
 
             for (int i = 0; i < grubs.Count; i++)
             {
                 grubs[i].Update(mouseState, prevMouseState, gameTime);
+                if (grubs[i].CurrentState == GrubState.Gone)
+                {
+                    grubs.RemoveAt(i);
+                    i--;
+                }
             }
             
 
@@ -109,6 +160,8 @@ namespace Monogame___Loops_and_Lists_Assignment
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             _spriteBatch.Begin();
+
+            _spriteBatch.Draw(background, new Vector2(0, 0), Color.White);
 
             for (int i = 0; i < grubs.Count; i++)
             {
