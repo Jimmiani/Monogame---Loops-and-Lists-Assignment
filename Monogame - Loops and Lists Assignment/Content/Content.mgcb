@@ -13,6 +13,16 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin Grubs/Fonts/gameFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Grubs/Fonts/gameFont.spritefont
+
+#begin Grubs/Fonts/Trajan Pro Bold.ttf
+/copy:Grubs/Fonts/Trajan Pro Bold.ttf
+
 #begin Grubs/Images/Alert 12/Cry_000.png
 /importer:TextureImporter
 /processor:TextureProcessor

@@ -172,19 +172,19 @@ namespace Monogame___Loops_and_Lists_Assignment
         }
         public void Update(GameTime gameTime)
         {
+            _animTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
             if (grubState == GrubState.Bounce)
             {
                 _bounceTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
                 _currentAnim = _idleAnim;
                 if (_animTimer >= 1.0 / 12.0)
                 {
+                    _currentFrame++;
+                    _animTimer = 0;
                     if (_currentFrame >= _idleAnim.Count)
                     {
                         _currentFrame = 0;
-                        return;
                     }
-                    _currentFrame++;
-                    _animTimer = 0;
                 }
                 if (_bounceTimer >= 5)
                 {
@@ -196,6 +196,7 @@ namespace Monogame___Loops_and_Lists_Assignment
             }
             else if (grubState == GrubState.Wave)
             {
+                _currentAnim = _waveAnim;
                 if (_animTimer >= 1.0 / 12.0)
                 {
                     _currentFrame++;
@@ -203,6 +204,8 @@ namespace Monogame___Loops_and_Lists_Assignment
                     if (_currentFrame >= _waveAnim.Count)
                     {
                         grubState = GrubState.Bounce;
+                        _currentFrame = 0;
+                        _animTimer = 0;
                     }
                 }
             }
@@ -220,6 +223,18 @@ namespace Monogame___Loops_and_Lists_Assignment
                 spriteBatch.Draw(_jarTexture, _jarRect, Color.White);
             }
             
+        }
+
+        public void Draw(SpriteBatch spriteBatch, bool flip)
+        {
+            if (flip)
+            {
+                spriteBatch.Draw(_currentAnim[_currentFrame], _grubRect, null, Color.White, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
+            }
+            else
+            {
+                spriteBatch.Draw(_currentAnim[_currentFrame], _grubRect, Color.White);
+            }
         }
 
         public GrubState CurrentState
