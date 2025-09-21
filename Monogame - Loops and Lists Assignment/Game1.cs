@@ -8,18 +8,17 @@ using System.Collections.Generic;
 
 namespace Monogame___Loops_and_Lists_Assignment
 {
+    enum Screen
+    {
+        Intro,
+        Game,
+        End
+    }
     public class Game1 : Game
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-
-        enum Screen
-        {
-            Intro,
-            Game,
-            End
-        }
 
         MouseState mouseState, prevMouseState;
         KeyboardState keyboardState;
