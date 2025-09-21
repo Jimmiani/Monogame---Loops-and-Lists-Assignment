@@ -17,7 +17,9 @@ namespace Monogame___Loops_and_Lists_Assignment
         Idle,
         Alert,
         Freed,
-        Gone
+        Gone,
+        Bounce,
+        Wave
     }
 
     internal class Grub
@@ -35,6 +37,7 @@ namespace Monogame___Loops_and_Lists_Assignment
         private List<Texture2D> _freedAnim;
         private List<Texture2D> _alertAnim;
         private List<Texture2D> _currentAnim;
+        private List<Texture2D> _waveAnim;
 
         private Rectangle _grubRect;
         private Rectangle _jarRect;
@@ -43,6 +46,7 @@ namespace Monogame___Loops_and_Lists_Assignment
         private int _currentFrame;
         private float _animTimer;
         private float _breakTimer;
+        private float _bounceTimer;
         private bool _isBroken;
 
         public Grub(List<Texture2D> idleAnim, List<SoundEffect> idleEffect, List<Texture2D> alertAnim, List<SoundEffect> alertEffect, List<Texture2D> freedAnim, List<SoundEffect> freedEffect, Texture2D jarTexture, SoundEffect breakEffect, SoundEffect burrowEffect)
@@ -67,6 +71,16 @@ namespace Monogame___Loops_and_Lists_Assignment
             _isBroken = false;
             _jarRect = new Rectangle(_generator.Next(10, 1150), _generator.Next(10, 580), 119, 130);
             _grubRect = new Rectangle(_jarRect.X + 18, _jarRect.Y + 27, 86, 102);
+        }
+
+        public Grub(List<Texture2D> idleAnim, List<Texture2D> waveAnim, int x, int y, int size)
+        {
+            _idleAnim = idleAnim;
+            _waveAnim = waveAnim;
+            _currentAnim = idleAnim;
+            grubState = GrubState.Bounce;
+            _grubRect = new Rectangle(x, y, size, size * (171/157));
+            _bounceTimer = 0;
         }
 
         public void Update(MouseState mouseState, MouseState prevMouseState, GameTime gameTime)
@@ -156,6 +170,43 @@ namespace Monogame___Loops_and_Lists_Assignment
                 }
             }
         }
+        public void Update(GameTime gameTime)
+        {
+            if (grubState == GrubState.Bounce)
+            {
+                _bounceTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                _currentAnim = _idleAnim;
+                if (_animTimer >= 1.0 / 12.0)
+                {
+                    if (_currentFrame >= _idleAnim.Count)
+                    {
+                        _currentFrame = 0;
+                        return;
+                    }
+                    _currentFrame++;
+                    _animTimer = 0;
+                }
+                if (_bounceTimer >= 5)
+                {
+                    _bounceTimer = 0;
+                    _currentFrame = 0;
+                    _animTimer = 0;
+                    grubState = GrubState.Wave;
+                }
+            }
+            else if (grubState == GrubState.Wave)
+            {
+                if (_animTimer >= 1.0 / 12.0)
+                {
+                    _currentFrame++;
+                    _animTimer = 0;
+                    if (_currentFrame >= _waveAnim.Count)
+                    {
+                        grubState = GrubState.Bounce;
+                    }
+                }
+            }
+        }
 
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -174,6 +225,7 @@ namespace Monogame___Loops_and_Lists_Assignment
         public GrubState CurrentState
         {
             get { return grubState; }
+            set { grubState = value; }
         }
 
         public Rectangle Hitbox

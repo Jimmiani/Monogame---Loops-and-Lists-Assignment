@@ -347,7 +347,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Grubs/Images/grass_background.png
+/build:Grubs/Images/grass_background.png;Grubs/Images/grass_background
 
 #begin Grubs/Images/grub_jar.png
 /importer:TextureImporter
@@ -360,6 +360,330 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Grubs/Images/grub_jar.png;Grubs/Images/grub_jar
+
+#begin Grubs/Images/Home Idle 12/Home Bounce_000.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Idle 12/Home Bounce_000.png;Grubs/Images/Home Idle 12/Home Bounce_000
+
+#begin Grubs/Images/Home Idle 12/Home Bounce_001.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Idle 12/Home Bounce_001.png;Grubs/Images/Home Idle 12/Home Bounce_001
+
+#begin Grubs/Images/Home Idle 12/Home Bounce_002.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Idle 12/Home Bounce_002.png;Grubs/Images/Home Idle 12/Home Bounce_002
+
+#begin Grubs/Images/Home Idle 12/Home Bounce_003.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Idle 12/Home Bounce_003.png;Grubs/Images/Home Idle 12/Home Bounce_003
+
+#begin Grubs/Images/Home Wave 12/Home Wave_000.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Wave 12/Home Wave_000.png;Grubs/Images/Home Wave 12/Home Wave_000
+
+#begin Grubs/Images/Home Wave 12/Home Wave_001.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Wave 12/Home Wave_001.png;Grubs/Images/Home Wave 12/Home Wave_001
+
+#begin Grubs/Images/Home Wave 12/Home Wave_002.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Wave 12/Home Wave_002.png;Grubs/Images/Home Wave 12/Home Wave_002
+
+#begin Grubs/Images/Home Wave 12/Home Wave_003.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Wave 12/Home Wave_003.png;Grubs/Images/Home Wave 12/Home Wave_003
+
+#begin Grubs/Images/Home Wave 12/Home Wave_004.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Wave 12/Home Wave_004.png;Grubs/Images/Home Wave 12/Home Wave_004
+
+#begin Grubs/Images/Home Wave 12/Home Wave_005.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Wave 12/Home Wave_005.png;Grubs/Images/Home Wave 12/Home Wave_005
+
+#begin Grubs/Images/Home Wave 12/Home Wave_006.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Wave 12/Home Wave_006.png;Grubs/Images/Home Wave 12/Home Wave_006
+
+#begin Grubs/Images/Home Wave 12/Home Wave_007.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Wave 12/Home Wave_007.png;Grubs/Images/Home Wave 12/Home Wave_007
+
+#begin Grubs/Images/Home Wave 12/Home Wave_008.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Wave 12/Home Wave_008.png;Grubs/Images/Home Wave 12/Home Wave_008
+
+#begin Grubs/Images/Home Wave 12/Home Wave_009.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Wave 12/Home Wave_009.png;Grubs/Images/Home Wave 12/Home Wave_009
+
+#begin Grubs/Images/Home Wave 12/Home Wave_010.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Wave 12/Home Wave_010.png;Grubs/Images/Home Wave 12/Home Wave_010
+
+#begin Grubs/Images/Home Wave 12/Home Wave_011.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Wave 12/Home Wave_011.png;Grubs/Images/Home Wave 12/Home Wave_011
+
+#begin Grubs/Images/Home Wave 12/Home Wave_012.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Wave 12/Home Wave_012.png;Grubs/Images/Home Wave 12/Home Wave_012
+
+#begin Grubs/Images/Home Wave 12/Home Wave_013.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Wave 12/Home Wave_013.png;Grubs/Images/Home Wave 12/Home Wave_013
+
+#begin Grubs/Images/Home Wave 12/Home Wave_014.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Wave 12/Home Wave_014.png;Grubs/Images/Home Wave 12/Home Wave_014
+
+#begin Grubs/Images/Home Wave 12/Home Wave_015.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Wave 12/Home Wave_015.png;Grubs/Images/Home Wave 12/Home Wave_015
+
+#begin Grubs/Images/Home Wave 12/Home Wave_016.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Wave 12/Home Wave_016.png;Grubs/Images/Home Wave 12/Home Wave_016
+
+#begin Grubs/Images/Home Wave 12/Home Wave_017.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Wave 12/Home Wave_017.png;Grubs/Images/Home Wave 12/Home Wave_017
+
+#begin Grubs/Images/Home Wave 12/Home Wave_018.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Wave 12/Home Wave_018.png;Grubs/Images/Home Wave 12/Home Wave_018
+
+#begin Grubs/Images/Home Wave 12/Home Wave_019.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Wave 12/Home Wave_019.png;Grubs/Images/Home Wave 12/Home Wave_019
+
+#begin Grubs/Images/Home Wave 12/Home Wave_020.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Wave 12/Home Wave_020.png;Grubs/Images/Home Wave 12/Home Wave_020
+
+#begin Grubs/Images/Home Wave 12/Home Wave_021.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Wave 12/Home Wave_021.png;Grubs/Images/Home Wave 12/Home Wave_021
+
+#begin Grubs/Images/Home Wave 12/Home Wave_022.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/Home Wave 12/Home Wave_022.png;Grubs/Images/Home Wave 12/Home Wave_022
 
 #begin Grubs/Images/Idle 12/Idle_000.png
 /importer:TextureImporter
@@ -817,23 +1141,35 @@
 /processorParam:TextureFormat=Color
 /build:Grubs/Images/Idle 12/Idle_037.png;Grubs/Images/Idle 12/Idle_037
 
+#begin Grubs/Images/intro_background.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grubs/Images/intro_background.png;Grubs/Images/intro_background
+
 #begin Grubs/Sound Effects/Alert/grub_alert_1.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Grubs/Sound Effects/Alert/grub_alert_1.wav
+/build:Grubs/Sound Effects/Alert/grub_alert_1.wav;Grubs/Sound Effects/Alert/grub_alert_1
 
 #begin Grubs/Sound Effects/Alert/grub_alert_2.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Grubs/Sound Effects/Alert/grub_alert_2.wav
+/build:Grubs/Sound Effects/Alert/grub_alert_2.wav;Grubs/Sound Effects/Alert/grub_alert_2
 
 #begin Grubs/Sound Effects/Alert/grub_alert_3.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Grubs/Sound Effects/Alert/grub_alert_3.wav
+/build:Grubs/Sound Effects/Alert/grub_alert_3.wav;Grubs/Sound Effects/Alert/grub_alert_3
 
 #begin Grubs/Sound Effects/Burrow/grub_burrow.wav
 /importer:WavImporter
@@ -857,13 +1193,13 @@
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Grubs/Sound Effects/Jar Break/jar_break.wav
+/build:Grubs/Sound Effects/Jar Break/jar_break.wav;Grubs/Sound Effects/Jar Break/jar_break
 
 #begin Grubs/Sound Effects/Music/Greenpath.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Grubs/Sound Effects/Music/Greenpath.wav
+/build:Grubs/Sound Effects/Music/Greenpath.wav;Grubs/Sound Effects/Music/Greenpath
 
 #begin Grubs/Sound Effects/Sad/grub_sad_1.wav
 /importer:WavImporter

@@ -13,14 +13,26 @@ namespace Monogame___Loops_and_Lists_Assignment
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+
+        enum Screen
+        {
+            Intro,
+            Game,
+            End
+        }
+
         MouseState mouseState, prevMouseState;
+        KeyboardState keyboardState;
         List<Grub> grubs;
+        Grub introGrub;
         SoundEffectInstance musicInstance;
         SoundEffect greenpathMusic;
 
         List<Texture2D> grubIdle;
         List<Texture2D> grubAlert;
         List<Texture2D> grubFreed;
+        List<Texture2D> grubBounce;
+        List<Texture2D> grubWave;
 
         List<SoundEffect> idleEffect;
         List<SoundEffect> alertEffect;
@@ -29,10 +41,12 @@ namespace Monogame___Loops_and_Lists_Assignment
         SoundEffect breakEffect;
 
         Texture2D grubJarTexture;
-        Texture2D background;
+        Texture2D gameBackground;
+        Texture2D introBackground;
         Rectangle window;
         float grubTimer;
         int prevWheelValue;
+        Screen screen;
 
 
 
@@ -52,6 +66,7 @@ namespace Monogame___Loops_and_Lists_Assignment
             window = new Rectangle(0, 0, _graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
             grubTimer = 0;
             prevWheelValue = mouseState.ScrollWheelValue;
+            screen = Screen.Intro;
 
             grubIdle = new List<Texture2D>();
             grubAlert = new List<Texture2D>();
@@ -65,6 +80,8 @@ namespace Monogame___Loops_and_Lists_Assignment
 
             musicInstance.IsLooped = true;
             musicInstance.Play();
+
+            introGrub = new Grub(grubBounce, grubWave, 500, 300, 300);
 
             grubs = new List<Grub>();
             for (int i = 0; i < 3; i++)
@@ -94,8 +111,13 @@ namespace Monogame___Loops_and_Lists_Assignment
                 grubFreed.Add(Content.Load<Texture2D>("Grubs/Images/Freed 10/Freed_" + i.ToString("D3")));
             for (int i = 0; i <= 37; i++)
                 grubIdle.Add(Content.Load<Texture2D>("Grubs/Images/Idle 12/Idle_" + i.ToString("D3")));
+            for (int i = 0; i <= 22; i++)
+                grubWave.Add(Content.Load<Texture2D>("Grubs/Images/Home Wave 12/Home Wave_" + i.ToString("D3")));
+            for (int i = 0; i <= 3; i++)
+                grubBounce.Add(Content.Load<Texture2D>("Grubs/Images/Home Idle 12/Home Bounce_" + i.ToString("D3")));
             grubJarTexture = Content.Load<Texture2D>("Grubs/Images/grub_jar");
-            background = Content.Load<Texture2D>("Grubs/Images/grass_background");
+            gameBackground = Content.Load<Texture2D>("Grubs/Images/grass_background");
+            introBackground = Content.Load<Texture2D>("Grubs/Images/intro_background");
 
             // Sound Effects
 
@@ -120,38 +142,50 @@ namespace Monogame___Loops_and_Lists_Assignment
             prevMouseState = mouseState;
             prevWheelValue = mouseState.ScrollWheelValue;
             mouseState = Mouse.GetState();
-            grubTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-            
+            keyboardState = Keyboard.GetState();
 
-            if (grubTimer >= 3 || prevWheelValue > mouseState.ScrollWheelValue)
+            if (screen == Screen.Intro)
             {
-                grubTimer = 0;
-                if (grubs.Count <= 25)
+                introGrub.Update(gameTime);
+                if (keyboardState.IsKeyDown(Keys.Enter))
                 {
-                    grubs.Add(new Grub(grubIdle, idleEffect, grubAlert, alertEffect, grubFreed, freedEffect, grubJarTexture, breakEffect, burrowEffect));
-                    for (int j = 0; j < grubs.Count - 1; j++)
+                    screen = Screen.Game;
+                }
+            }
+
+            else if (screen == Screen.Game)
+            {
+                grubTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (grubTimer >= 3 || prevWheelValue > mouseState.ScrollWheelValue)
+                {
+                    grubTimer = 0;
+                    if (grubs.Count <= 25)
                     {
-                        if (grubs[grubs.Count - 1].Hitbox.Intersects(grubs[j].Hitbox))
+                        grubs.Add(new Grub(grubIdle, idleEffect, grubAlert, alertEffect, grubFreed, freedEffect, grubJarTexture, breakEffect, burrowEffect));
+                        for (int j = 0; j < grubs.Count - 1; j++)
                         {
-                            grubs[grubs.Count - 1].MoveHitbox();
-                            j = -1;
+                            if (grubs[grubs.Count - 1].Hitbox.Intersects(grubs[j].Hitbox))
+                            {
+                                grubs[grubs.Count - 1].MoveHitbox();
+                                j = -1;
+                            }
                         }
                     }
                 }
-            }
 
-            for (int i = 0; i < grubs.Count; i++)
-            {
-                grubs[i].Update(mouseState, prevMouseState, gameTime);
-                if (grubs[i].CurrentState == GrubState.Gone)
+                for (int i = 0; i < grubs.Count; i++)
                 {
-                    grubs.RemoveAt(i);
-                    i--;
+                    grubs[i].Update(mouseState, prevMouseState, gameTime);
+                    if (grubs[i].CurrentState == GrubState.Gone)
+                    {
+                        grubs.RemoveAt(i);
+                        i--;
+                    }
                 }
             }
             
-
-
+            
             base.Update(gameTime);
         }
 
@@ -161,15 +195,25 @@ namespace Monogame___Loops_and_Lists_Assignment
 
             _spriteBatch.Begin();
 
-            _spriteBatch.Draw(background, new Vector2(0, 0), Color.White);
 
-            for (int i = 0; i < grubs.Count; i++)
+            if (screen == Screen.Intro)
             {
-                grubs[i].Draw(_spriteBatch);
+                _spriteBatch.Draw(introBackground, Vector2.Zero, Color.White);
+                introGrub.Draw(_spriteBatch);
+            }
+
+            else if (screen == Screen.Game)
+            {
+                _spriteBatch.Draw(gameBackground, Vector2.Zero, Color.White);
+
+                for (int i = 0; i < grubs.Count; i++)
+                {
+                    grubs[i].Draw(_spriteBatch);
+                }
             }
             
 
-            _spriteBatch.End();
+                _spriteBatch.End();
 
             base.Draw(gameTime);
         }
